@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+a {
+    text-decoration: none;
+}
+#content {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%; width: 100%;
+    z-index: 1;
+    -webkit-transition: -webkit-transform 0.8s ease;
+       -moz-transition:    -moz-transform 0.8s ease;
+            transition:         transform 0.8s ease;
+}
+#content.ng-enter {
+    -webkit-transform: translateX(100%);
+}
+#content.ng-enter-active {
+    -webkit-transform: translateX(0%);
+}
+#content.ng-leave {
+    -webkit-transform: translateX(0%);
+}
+#content.ng-leave-active {
+    -webkit-transform: translateX(-100%);
+}
+#nav {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    z-index: 2;
+}
+#nav #arrows {
+    position: absolute;
+    top: 50%; left: 0;
+    margin-top: -16px;
+}
+#nav #arrows a {
+    display: block;
+    height: 32px;
+    font-size: 32px;
+    line-height: 32px;
+    color: rgba(255,255,255,0.4);
+    -webkit-transition: color 0.2s ease;
+       -moz-transition: color 0.2s ease;
+            transition: color 0.2s ease;
+}
+#nav #arrows a:hover {
+    color: rgba(255,255,255,0.8);
+}
+#nav #arrows #next {
+    float: right;
+    margin-right: 32px;
+}
+#nav #arrows #prev {
+    float: left;
+    margin-left: 32px;
+}
+#nav #pagination {
+    position: absolute;
+    left: 0; bottom: 24px;
+    text-align: center;
+}
+#nav #pagination a {
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    margin: 0 4px 0 4px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.4);
+    -webkit-transition: background 0.4s ease;
+       -moz-transition: background 0.4s ease;
+            transition: background 0.4s ease;
+}
+#nav #pagination a.active,
+#nav #pagination a:active {
+    background: rgba(255,255,255,0.8);
+}
+.slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    font-size: 0;
+    text-align: center;
+}
+.slide.one {
+    background: #F44336;
+}
+.slide.two {
+    background: #9C27B0;
+}
+.slide.three {
+    background: #3F51B5;
+}
+.slide.four {
+    background: #03A9F4;
+}
+.slide.five {
+    background: #009688;
+}
+.slide.six {
+    background: #8BC34A;
+}
+.slide.seven {
+    background: #FFEB3B;
+}
+.slide.eight {
+    background: #FF9800;
+}
+.slide:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+.slide h1 {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 256px;
+    margin: 0;
+    color: #FFF;
+}

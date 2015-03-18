@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Slides</title>
+    <link rel="stylesheet" href="styles/app.css">
+    <script src="scripts/libs/angular.min.js"></script>
+    <script src="scripts/libs/angular-route.min.js"></script>
+    <script src="scripts/libs/angular-animate.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers.js"></script>
+    <script src="scripts/directives.js"></script>
+    <script src="scripts/filters.js"></script>
+    <script src="scripts/services.js"></script>
+</head>
+<body data-ng-app="slideView">
+
+    <div id="nav" data-ng-controller="navController" data-nav>
+        <div id="arrows">
+            <a id="prev" ng-href="#{{prev}}">&#9668;</a>
+            <a id="next" ng-href="#{{next}}">&#9658;</a>
+        </div>
+        <div id="pagination">
+            <a ng-repeat="route in routes" data-ng-href="#{{route}}" data-ng-class="{'active': active(route)}"></a>
+        </div>
+    </div>
+
+    <div id="content" ng-view></div>
+</body>
+</html>
