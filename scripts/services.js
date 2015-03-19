@@ -1,28 +1,36 @@
 angular.module('slideView')
 
-    .factory('navService', function($filter, $route) {
+    .factory('$navigate', function($filter, $route, $location, $rootScope, $timeout) {
 
-        var routes = $filter('routes')($route.routes);
+        $rootScope.direction = 'none';
 
         return {
 
-            list: function() {
-                return routes;
+            routes: $filter('routes')($route.routes),
+
+            index: function(location) {
+                return this.routes.indexOf(location || $location.path());
             },
 
-            next: function(path) {
-                var index = routes.indexOf(path);
-                return routes[index + 1] || routes[0]
+            next: function() {
+                this.go(this.routes[this.index() + 1] || this.routes[0]);
             },
 
-            prev: function(path) {
-                var index = routes.indexOf(path);
-                return routes[index - 1] || routes[routes.length - 1];
+            prev: function() {
+                this.go(this.routes[this.index() - 1] || this.routes[this.routes.length - 1], 'reverse');
             },
 
-            type: function(prev, next) {
-                return routes.indexOf(prev) > routes.indexOf(next);
+            to: function(location) {
+                this.go(location, this.index() > this.index(location) && 'reverse');
+            },
+
+            go: function(location, direction) {
+                $rootScope.direction = direction || 'normal';
+                $timeout(function() {
+                    $location.path(location);
+                });
             }
+
         }
 
     });

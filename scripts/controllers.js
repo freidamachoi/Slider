@@ -1,21 +1,12 @@
 angular.module('slideView')
 
-    .controller('navController', function($scope, $location, navService) {
+    .controller('mainController', function($scope, $navigate) {
+        $scope.$navigate = $navigate;
+    })
 
-        $scope.routes = navService.list();
-
+    .controller('navController', function($scope, $location) {
         $scope.active = function(route) {
             return route === $location.path();
         };
-
-        $scope.navigate = function(val) {
-            console.log(val);
-        };
-
-        $scope.$on('$routeChangeSuccess', function() {
-            var path = $location.path();
-            $scope.next = navService.next(path);
-            $scope.prev = navService.prev(path);
-        });
-
     });
+

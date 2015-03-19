@@ -13,18 +13,21 @@
     <script src="scripts/filters.js"></script>
     <script src="scripts/services.js"></script>
 </head>
-<body data-ng-app="slideView">
+<body data-ng-app="slideView" data-ng-controller="mainController">
 
     <div id="nav" data-ng-controller="navController" data-nav>
         <div id="arrows">
-            <a id="prev" ng-href="#{{prev}}">&#9668;</a>
-            <a id="next" ng-href="#{{next}}">&#9658;</a>
+            <a id="prev" data-ng-click="$navigate.prev()">&#9668;</a>
+            <a id="next" data-ng-click="$navigate.next()">&#9658;</a>
         </div>
         <div id="pagination">
-            <a ng-repeat="route in routes" data-ng-href="#{{route}}" data-ng-class="{'active': active(route)}"></a>
+            <a data-ng-repeat="route in $navigate.routes" data-ng-click="$navigate.to(route)" data-ng-class="{'active': active(route)}"></a>
         </div>
     </div>
 
-    <div id="content" ng-view></div>
+    <div id="view" data-ng-class="direction">
+        <div class="content" data-ng-view></div>
+    </div>
+
 </body>
 </html>

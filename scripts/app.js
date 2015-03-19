@@ -36,7 +36,6 @@ angular.module('slideView', ['ngRoute', 'ngAnimate'])
 
     .run(function($rootScope) {
 
-
         $rootScope.$on('$routeChangeStart', function(event, current, previous) {
 
             if (!previous || !current.$$route) return;

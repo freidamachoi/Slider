@@ -1,12 +1,26 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+html {
+    min-width: 1000px;
+    min-height: 600px;
+}
 body {
+    position: relative;
     margin: 0;
     font-family: sans-serif;
-    overflow: hidden;
 }
 a {
     text-decoration: none;
 }
-#content {
+#view {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%; width: 100%;
+    overflow: hidden;
+}
+.content {
     position: absolute;
     top: 0; left: 0;
     height: 100%; width: 100%;
@@ -15,17 +29,41 @@ a {
        -moz-transition:    -moz-transform 0.8s ease;
             transition:         transform 0.8s ease;
 }
-#content.ng-enter {
+.content.ng-enter {
     -webkit-transform: translateX(100%);
+    transform: translateX(100%);
 }
-#content.ng-enter-active {
+.content.ng-enter-active {
     -webkit-transform: translateX(0%);
+    transform: translateX(0%);
 }
-#content.ng-leave {
+.content.ng-leave {
     -webkit-transform: translateX(0%);
+    transform: translateX(0%);
 }
-#content.ng-leave-active {
+.content.ng-leave-active {
     -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+.reverse .content.ng-enter {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+.reverse .content.ng-enter-active {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+}
+.reverse .content.ng-leave {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+}
+.reverse .content.ng-leave-active {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+.none .content {
+    -webkit-transition: none;
+    transition: none;
 }
 #nav {
     position: absolute;
