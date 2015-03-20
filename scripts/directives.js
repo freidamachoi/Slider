@@ -1,5 +1,10 @@
 angular.module('slider')
 
+    /**
+     * disable routing during animation
+     * set animation direction
+     */
+
     .directive('view', function($navigate) {
         return function(scope, element) {
 
@@ -19,6 +24,12 @@ angular.module('slider')
         }
     })
 
+
+
+    /**
+     * animation end handler
+     */
+
     .directive('ngView', function($navigate) {
         return function (scope, element) {
             element.on('$animate:close', function() {
@@ -29,7 +40,13 @@ angular.module('slider')
         }
     })
 
-    .directive('nav', function($document) {
+
+
+    /**
+     * Placing arrows and pagination
+     */
+
+    .directive('nav', function() {
 
         function setWidth(element) {
             element.css('width', document.body.offsetWidth + 'px');

@@ -1,6 +1,6 @@
 angular.module('slider')
 
-    .factory('$navigate', function($filter, $route, $location, $rootScope, $timeout) {
+    .factory('$navigate', function($filter, $route, $location) {
 
         return {
 
