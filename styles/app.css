@@ -19,51 +19,20 @@ a {
     top: 0; left: 0;
     height: 100%; width: 100%;
     overflow: hidden;
+    z-index: 1;
 }
 .content {
     position: absolute;
     top: 0; left: 0;
     height: 100%; width: 100%;
-    z-index: 1;
-    -webkit-transition: -webkit-transform 0.8s ease;
-       -moz-transition:    -moz-transform 0.8s ease;
-            transition:         transform 0.8s ease;
-}
-.content.ng-enter {
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
-}
-.content.ng-enter-active {
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
-}
-.content.ng-leave {
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
-}
-.content.ng-leave-active {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-}
-.reverse .content.ng-enter {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-}
-.reverse .content.ng-enter-active {
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
-}
-.reverse .content.ng-leave {
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
-}
-.reverse .content.ng-leave-active {
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
+    -webkit-transition: all 0.8s ease;
+       -moz-transition: all 0.8s ease;
+            transition: all 0.8s ease;
 }
 .none .content {
     -webkit-transition: none;
-    transition: none;
+       -moz-transition: none;
+            transition: none;
 }
 #nav {
     position: absolute;

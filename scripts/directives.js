@@ -1,5 +1,4 @@
-angular.module('slideView')
-
+angular.module('slider')
 
     .directive('view', function($navigate) {
         return function(scope, element) {
@@ -19,7 +18,6 @@ angular.module('slideView')
             });
         }
     })
-
 
     .directive('ngView', function($navigate) {
         return function (scope, element) {

@@ -1,4 +1,4 @@
-angular.module('slideView', ['ngRoute', 'ngAnimate'])
+angular.module('slider', ['ngRoute', 'ngAnimate'])
 
     .config(function($routeProvider) {
 

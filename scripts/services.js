@@ -1,4 +1,4 @@
-angular.module('slideView')
+angular.module('slider')
 
     .factory('$navigate', function($filter, $route, $location, $rootScope, $timeout) {
 

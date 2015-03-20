@@ -1,4 +1,4 @@
-angular.module('slideView')
+angular.module('slider')
 
     .filter('routes', function() {
         return function(items) {
