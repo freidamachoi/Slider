@@ -32,21 +32,5 @@ angular.module('slideView', ['ngRoute', 'ngAnimate'])
                 redirectTo: '/one'
             });
 
-    })
-
-    .run(function($rootScope) {
-
-        $rootScope.$on('$routeChangeStart', function(event, current, previous) {
-
-            if (!previous || !current.$$route) return;
-
-            if ($rootScope.animation) {
-                event.preventDefault();
-            }
-            else {
-                $rootScope.animation = true;
-            }
-        });
-
     });
 

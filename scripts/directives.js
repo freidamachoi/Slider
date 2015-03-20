@@ -1,11 +1,32 @@
 angular.module('slideView')
 
-    .directive('ngView', function($rootScope) {
+
+    .directive('view', function($navigate) {
+        return function(scope, element) {
+
+            scope.$on('$routeChangeStart', function(event, current, previous) {
+
+                if (!previous || !current.$$route) return;
+
+                if ($navigate.animation) {
+                    event.preventDefault();
+                }
+                else {
+                    element.removeClass('none');
+                    element.toggleClass('reverse', $navigate.reverse);
+                    $navigate.animation = true;
+                }
+            });
+        }
+    })
+
+
+    .directive('ngView', function($navigate) {
         return function (scope, element) {
             element.on('$animate:close', function() {
-                $rootScope.animation = false;
-                $rootScope.direction = 'reverse';
-                $rootScope.$apply();
+                $navigate.animation = false;
+                $navigate.reverse = true;
+                element.parent().addClass('reverse');
             })
         }
     })

@@ -2,10 +2,9 @@ angular.module('slideView')
 
     .factory('$navigate', function($filter, $route, $location, $rootScope, $timeout) {
 
-        $rootScope.direction = 'none';
-
         return {
 
+            animation: false,
             routes: $filter('routes')($route.routes),
 
             index: function(location) {
@@ -13,22 +12,21 @@ angular.module('slideView')
             },
 
             next: function() {
-                this.go(this.routes[this.index() + 1] || this.routes[0]);
+                this.go(this.routes[this.index() + 1] || this.routes[0], false);
             },
 
             prev: function() {
-                this.go(this.routes[this.index() - 1] || this.routes[this.routes.length - 1], 'reverse');
+                this.go(this.routes[this.index() - 1] || this.routes[this.routes.length - 1], true);
             },
 
             to: function(location) {
-                this.go(location, this.index() > this.index(location) && 'reverse');
+                this.go(location, this.index() > this.index(location));
             },
 
-            go: function(location, direction) {
-                $rootScope.direction = direction || 'normal';
-                $timeout(function() {
-                    $location.path(location);
-                });
+            go: function(location, reverse) {
+                this.reverse = reverse;
+                $location.path(location);
+
             }
 
         }
