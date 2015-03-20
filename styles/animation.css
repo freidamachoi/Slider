@@ -1,4 +1,5 @@
 .ng-enter {
+    z-index: 2;
     -webkit-transform: translateX(100%);
        -moz-transform: translateX(100%);
             transform: translateX(100%);
@@ -9,6 +10,7 @@
             transform: translateX(0%);
 }
 .ng-leave {
+    z-index: 1;
     -webkit-transform: translateX(0%);
        -moz-transform: translateX(0%);
             transform: translateX(0%);
